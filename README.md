@@ -160,20 +160,36 @@ databricks-financial-market-pipeline/
 
 2. **Sign up for Alpha Vantage API key**
    - Go to: https://www.alphavantage.co/support/#api-key
-   - Get your free API key
+   - Get your free API key (500 calls/day limit)
 
 3. **Upload notebooks to Databricks**
    - Login to Databricks Community Edition
    - Create workspace folder: `FinancialMarketPipeline`
    - Import all `.ipynb` files from `/notebooks` folder
 
-4. **Configure API key**
+4. **⚠️ IMPORTANT: Configure API key**
    - Open notebook `02_Ingest_to_Bronze`
-   - Replace `YOUR_API_KEY_HERE` with your actual key
+   - Find line: `API_KEY = "YOUR_ALPHA_VANTAGE_KEY"`
+   - Replace with your actual Alpha Vantage API key
+   - **NEVER commit your actual API key to GitHub!**
 
 5. **Run notebooks in sequence**
    - Execute notebooks 01 → 02 → 03 → 04 → 05
    - Each notebook takes 2-5 minutes to complete
+
+---
+
+## 🔒 Security
+
+This project uses the Alpha Vantage API which requires an API key. 
+
+**Important:**
+- API keys are **not included** in this repository
+- Get your own free key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+- Never commit API keys or secrets to version control
+- Use environment variables or secure vaults in production
+
+For demonstration purposes, the notebooks contain placeholder text `YOUR_ALPHA_VANTAGE_KEY` which must be replaced with your actual key before running.
 
 ---
 
@@ -260,7 +276,7 @@ This project demonstrates proficiency in:
 **Jose Veliz**
 - 20+ years experience in data engineering & cloud infrastructure
 - Specialized in Azure, Databricks, Terraform, and modern data architectures
-- LinkedIn: [linkedin.com/in/joseveliz](https://linkedin.com/in/jose-veliz-6bb49b7a)
+- LinkedIn: [linkedin.com/in/joseveliz](https://linkedin.com/in/jose-veliz-it)
 - Email: jose.veliz@gmail.com
 
 ---
@@ -285,7 +301,6 @@ Interested in discussing this project or data engineering opportunities?
 
 - 📧 Email: jose.veliz@gmail.com
 - 💼 LinkedIn: [Jose Veliz](https://linkedin.com/in/jose-veliz-it)
-- 📱 Phone: 416-***-****
 
 ---
 
