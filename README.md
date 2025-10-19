@@ -34,46 +34,46 @@ A production-ready data pipeline that ingests real-time stock market data from t
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│   BRONZE LAYER - Raw Data Ingestion                          │
-│  • REST API calls (Python requests)                            │
-│  • JSON data extraction                                        │
-│  • Delta Lake storage                                          │
-│  • Partitioned by date                                         │
-│  • 500 rows | 9 columns                                        │
+│   BRONZE LAYER - Raw Data Ingestion                             │
+│  • REST API calls (Python requests)                             │
+│  • JSON data extraction                                         │
+│  • Delta Lake storage                                           │
+│  • Partitioned by date                                          │
+│  • 500 rows | 9 columns                                         │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│   SILVER LAYER - Data Quality & Transformation               │
-│  • Data validation & deduplication                             │
-│  • Type conversions & standardization                          │
-│  • Business logic (daily_change_pct, price_range)             │
-│  • Date components (year, month, quarter)                     │
-│  • Partitioned by year/month                                   │
-│  • 500 rows | 20 columns                                       │
+│   SILVER LAYER - Data Quality & Transformation                  │
+│  • Data validation & deduplication                              │
+│  • Type conversions & standardization                           │
+│  • Business logic (daily_change_pct, price_range)               │
+│  • Date components (year, month, quarter)                       │
+│  • Partitioned by year/month                                    │
+│  • 500 rows | 20 columns                                        │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│   GOLD LAYER - Business Analytics                            │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │ gold_daily_summary (100 rows)                           │  │
-│  │ • Market-wide daily metrics                             │  │
-│  │ • Sentiment analysis (Bullish/Bearish)                  │  │
-│  │ • Trading volume & volatility                           │  │
-│  └──────────────────────────────────────────────────────────┘  │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │ gold_stock_performance (5 rows)                         │  │
-│  │ • Per-stock metrics & rankings                          │  │
-│  │ • Win rate & risk/reward ratios                         │  │
-│  │ • Performance ratings (STRONG/GOOD/NEUTRAL)             │  │
-│  └──────────────────────────────────────────────────────────┘  │
-│  ┌──────────────────────────────────────────────────────────┐  │
-│  │ gold_top_performers (600 rows)                          │  │
-│  │ • Daily top gainers/losers                              │  │
-│  │ • Top 3 movers per day                                  │  │
-│  │ • Partitioned by date                                   │  │
-│  └──────────────────────────────────────────────────────────┘  │
+│   GOLD LAYER - Business Analytics                               │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ gold_daily_summary (100 rows)                            │   │
+│  │ • Market-wide daily metrics                              │   │
+│  │ • Sentiment analysis (Bullish/Bearish)                   │   │
+│  │ • Trading volume & volatility                            │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ gold_stock_performance (5 rows)                          │   │
+│  │ • Per-stock metrics & rankings                           │   │
+│  │ • Win rate & risk/reward ratios                          │   │
+│  │ • Performance ratings (STRONG/GOOD/NEUTRAL)              │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ gold_top_performers (600 rows)                           │   │
+│  │ • Daily top gainers/losers                               │   │
+│  │ • Top 3 movers per day                                   │   │
+│  │ • Partitioned by date                                    │   │
+│  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
